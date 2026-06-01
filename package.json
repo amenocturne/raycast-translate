@@ -1,0 +1,83 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "ollama-translate",
+  "title": "Translate",
+  "description": "Offline translation between any two languages via local Ollama",
+  "icon": "command-icon.png",
+  "author": "skril",
+  "categories": ["Productivity"],
+  "license": "MIT",
+  "preferences": [
+    {
+      "name": "langA",
+      "title": "Language A",
+      "description": "First language (e.g. Russian, German, French)",
+      "type": "textfield",
+      "default": "Russian",
+      "required": true
+    },
+    {
+      "name": "langB",
+      "title": "Language B",
+      "description": "Second language (e.g. English, Spanish, Japanese)",
+      "type": "textfield",
+      "default": "English",
+      "required": true
+    },
+    {
+      "name": "scriptA",
+      "title": "Language A Script",
+      "description": "Unicode script regex for detection (e.g. Cyrillic, Han, Arabic). Leave empty for Latin-based languages.",
+      "type": "textfield",
+      "default": "Cyrillic",
+      "required": false
+    },
+    {
+      "name": "ollamaUrl",
+      "title": "Ollama URL",
+      "description": "Base URL of the Ollama API",
+      "type": "textfield",
+      "default": "http://localhost:11434",
+      "required": false
+    },
+    {
+      "name": "model",
+      "title": "Model",
+      "description": "Ollama model to use for translation",
+      "type": "textfield",
+      "default": "translategemma:latest",
+      "required": false
+    }
+  ],
+  "commands": [
+    {
+      "name": "translate",
+      "title": "Translate",
+      "description": "Translate text between configured languages",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "text",
+          "type": "text",
+          "required": true,
+          "placeholder": "Text to translate"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.100.0",
+    "@raycast/utils": "^2.2.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "22.x",
+    "@types/react": "19.x",
+    "typescript": "^5.8.0"
+  },
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build -e dist",
+    "lint": "ray lint"
+  }
+}
